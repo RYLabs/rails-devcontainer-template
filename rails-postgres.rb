@@ -1,7 +1,7 @@
 
 def apply_template!
   add_template_repository_to_source_path
-  directory ".devcontainer", "rails-postgres/.devcontainer"
+  directory "rails-postgres/.devcontainer", ".devcontainer"
 end
 
 require "fileutils"
