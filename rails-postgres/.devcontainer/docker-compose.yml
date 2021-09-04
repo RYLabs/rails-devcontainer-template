@@ -10,6 +10,9 @@ services:
         VARIANT: 2
         # [Choice] Node.js version: lts/*, 16, 14, 12, 10
         NODE_VERSION: "lts/*"
+        # Support running a patch version of ruby more specific than available
+        # docker images
+        PROJECT_RUBY_VERSION: "2.7.3"
 
     volumes:
       - ..:/workspace:cached
@@ -20,6 +23,10 @@ services:
 
     # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
     network_mode: service:db
+
+    environment:
+      HISTFILE: /home/vscode/data/.bash_history
+      PSQL_HISTFILE: /home/vscode/data/.psql_history
 
     # Uncomment the next line to use a non-root user for all processes.
     # user: vscode

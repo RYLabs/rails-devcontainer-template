@@ -24,5 +24,6 @@ RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSI
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
 
 ARG PROJECT_RUBY_VERSION=2
-COPY rvm_setup.sh /tmp
-RUN RUN bash --login /tmp/rvm_setup.sh
+COPY .devcontainer/rvm_setup.sh /tmp
+RUN bash --login /tmp/rvm_setup.sh "${PROJECT_RUBY_VERSION}" "vscode" \
+    && rm /tmp/rvm_setup.sh
