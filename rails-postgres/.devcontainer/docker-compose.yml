@@ -7,12 +7,9 @@ services:
       dockerfile: .devcontainer/Dockerfile
       args:
         # [Choice] Ruby version: 3, 3.0, 2, 2.7, 2.6, 2.5
-        VARIANT: 2
+        VARIANT: 2.7.3
         # [Choice] Node.js version: lts/*, 16, 14, 12, 10
         NODE_VERSION: "lts/*"
-        # Support running a patch version of ruby more specific than available
-        # docker images
-        PROJECT_RUBY_VERSION: "2.7.3"
 
     volumes:
       - ..:/workspace:cached
