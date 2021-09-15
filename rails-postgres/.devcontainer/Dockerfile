@@ -21,4 +21,3 @@ RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSI
 RUN mkdir -p /home/vscode/data/bundle \
     && echo 'Files here are expected to be mounted across containers' > /home/vscode/data/README \
     && chown vscode:vscode -R /home/vscode/data
-]
