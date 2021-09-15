@@ -16,3 +16,9 @@ RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && nvm install ${NODE_VERSI
 
 # [Optional] Uncomment this line to install global node packages.
 # RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
+
+# Setup a directory that we will mount to for persistent user data
+RUN mkdir -p /home/vscode/data/bundle \
+    && echo 'Files here are expected to be mounted across containers' > /home/vscode/data/README \
+    && chown vscode:vscode -R /home/vscode/data
+]
